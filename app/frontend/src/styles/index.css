@@ -1,0 +1,471 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/familjen-grotesk/wght.css';
+@import '@fontsource-variable/ibm-plex-sans/wght.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  PneumoScan design tokens
+  - Porcelain / Ink: the calm reading-room page
+  - Film: the lightbox panel (always dark, like a radiograph on a viewer)
+  - Base blue: the tint of X-ray film base, the single accent
+  - Clear / Flag / Caution: result states, always paired with an icon and words
+*/
+:root {
+  --bg: #f2f5f8;
+  --bg-tint: #e8eef4;
+  --surface: #ffffff;
+  --surface-2: #f6f8fb;
+  --sunken: #e9eef3;
+  --ink: #0b1620;
+  --ink-2: #3f4d5a;
+  --ink-3: #5d6a77;
+  --line: #d7dfe7;
+  --line-strong: #bccad7;
+  --accent: #1d5bd0;
+  --accent-hover: #174cb0;
+  --accent-soft: #e3ecfc;
+  --accent-ink: #ffffff;
+  --film: #060b11;
+  --film-2: #0d151e;
+  --film-line: #1f2b38;
+  --film-ink: #d6e2ee;
+  --film-ink-2: #8b9bab;
+  --film-glow: #5d8fd9;
+  --clear: #17734f;
+  --clear-soft: #e1f3ea;
+  --flag: #bf2f25;
+  --flag-soft: #fbe6e3;
+  --caution: #9a6100;
+  --caution-soft: #fbf0d9;
+  --shadow-1: 0 1px 2px rgb(11 22 32 / 0.06), 0 1px 1px rgb(11 22 32 / 0.04);
+  --shadow-2: 0 1px 2px rgb(11 22 32 / 0.05), 0 8px 24px -8px rgb(11 22 32 / 0.12);
+  --shadow-3: 0 2px 4px rgb(11 22 32 / 0.04), 0 24px 48px -16px rgb(11 22 32 / 0.22);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #091017;
+  --bg-tint: #0c141c;
+  --surface: #101922;
+  --surface-2: #131e28;
+  --sunken: #0c141c;
+  --ink: #e6edf4;
+  --ink-2: #aab7c4;
+  --ink-3: #8a98a6;
+  --line: #1f2c39;
+  --line-strong: #2d3d4d;
+  --accent: #7aa7ff;
+  --accent-hover: #9cbdff;
+  --accent-soft: #14233b;
+  --accent-ink: #06101f;
+  --film: #03070b;
+  --film-2: #0a1219;
+  --film-line: #1b2733;
+  --clear: #4cc38a;
+  --clear-soft: #0f2a1f;
+  --flag: #ff7b6f;
+  --flag-soft: #33140f;
+  --caution: #f0b445;
+  --caution-soft: #2d2109;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.5);
+  --shadow-3: 0 2px 4px rgb(0 0 0 / 0.3), 0 24px 48px -16px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-tint: var(--bg-tint);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-film: var(--film);
+  --color-film-2: var(--film-2);
+  --color-film-line: var(--film-line);
+  --color-film-ink: var(--film-ink);
+  --color-film-ink-2: var(--film-ink-2);
+  --color-film-glow: var(--film-glow);
+  --color-clear: var(--clear);
+  --color-clear-soft: var(--clear-soft);
+  --color-flag: var(--flag);
+  --color-flag-soft: var(--flag-soft);
+  --color-caution: var(--caution);
+  --color-caution-soft: var(--caution-soft);
+  --font-display: 'Familjen Grotesk Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-3: var(--shadow-3);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scrollbar-gutter: stable;
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button,
+  [role='button'],
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Display type: Familjen's ink-trap grotesk set tight */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 640;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-1);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.75rem;
+    padding: 0 1.1rem;
+    border-radius: 12px;
+    font-weight: 560;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 120ms ease;
+    user-select: none;
+  }
+  .btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.18),
+      0 1px 2px rgb(11 22 32 / 0.2);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+  }
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    border-color: var(--ink-3);
+    background: var(--surface-2);
+  }
+  .btn-ghost {
+    color: var(--ink-2);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--sunken);
+    color: var(--ink);
+  }
+  .btn-danger {
+    background: var(--flag);
+    color: #fff;
+  }
+  .dark .btn-danger {
+    color: #1a0705;
+  }
+  .btn-danger:hover:not(:disabled) {
+    filter: brightness(0.94);
+  }
+  .btn-sm {
+    height: 2.25rem;
+    padding: 0 0.8rem;
+    font-size: 0.875rem;
+    border-radius: 10px;
+  }
+  .btn-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 10px;
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 560;
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+  }
+  .field {
+    width: 100%;
+    height: 2.6rem;
+    padding: 0 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    color: var(--ink);
+    transition:
+      border-color 140ms ease,
+      box-shadow 140ms ease;
+  }
+  textarea.field {
+    height: auto;
+    min-height: 5.5rem;
+    padding: 0.6rem 0.8rem;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .field::placeholder {
+    color: var(--ink-3);
+    opacity: 0.85;
+  }
+  .field:hover {
+    border-color: var(--ink-3);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  /* ---------- The lightbox: the signature surface ---------- */
+  .lightbox {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 50% 40%, color-mix(in srgb, var(--film-glow) 16%, transparent), transparent 62%),
+      linear-gradient(180deg, var(--film-2), var(--film));
+    color: var(--film-ink);
+    border-radius: 22px;
+    border: 1px solid var(--film-line);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.05),
+      var(--shadow-3);
+  }
+  .lightbox::before {
+    /* faint film grain grid */
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(80% 70% at 50% 50%, #000 40%, transparent 100%);
+    pointer-events: none;
+  }
+  .film-annot {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1.45;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--film-ink-2);
+  }
+  .crop-mark {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgb(214 226 238 / 0.45);
+    pointer-events: none;
+  }
+  .crop-mark.tl {
+    top: 12px;
+    left: 12px;
+    border-top: 1.5px solid;
+    border-left: 1.5px solid;
+  }
+  .crop-mark.tr {
+    top: 12px;
+    right: 12px;
+    border-top: 1.5px solid;
+    border-right: 1.5px solid;
+  }
+  .crop-mark.bl {
+    bottom: 12px;
+    left: 12px;
+    border-bottom: 1.5px solid;
+    border-left: 1.5px solid;
+  }
+  .crop-mark.br {
+    bottom: 12px;
+    right: 12px;
+    border-bottom: 1.5px solid;
+    border-right: 1.5px solid;
+  }
+
+  /* Scanning sweep used while the model reads the film */
+  .scan-sweep {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 28%;
+    top: -28%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--film-glow) 10%, transparent) 70%,
+      color-mix(in srgb, #bcd6ff 55%, transparent) 99%,
+      transparent
+    );
+    border-bottom: 1px solid rgb(205 225 255 / 0.85);
+    box-shadow: 0 8px 24px rgb(120 170 255 / 0.35);
+    animation: sweep 1.7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    pointer-events: none;
+  }
+  @keyframes sweep {
+    0% {
+      top: -28%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  .range {
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      var(--film-glow) 0%,
+      var(--film-glow) var(--val, 50%),
+      var(--film-line) var(--val, 50%)
+    );
+  }
+  .range::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #e6efff;
+    border: 2px solid var(--film-glow);
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  }
+  .range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: #e6efff;
+    border: 2px solid var(--film-glow);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, var(--sunken) 0%, var(--surface-2) 40%, var(--sunken) 80%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    border-radius: 10px;
+  }
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  .prose-calm p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scan-sweep {
+    animation: none;
+    top: 40%;
+  }
+}
+
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}

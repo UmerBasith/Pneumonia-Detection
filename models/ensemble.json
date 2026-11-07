@@ -1,0 +1,40 @@
+{
+  "members": [
+    {
+      "name": "r50_384_s1",
+      "file": "r50_384_s1.pt",
+      "arch": "resnet50",
+      "res": 384
+    },
+    {
+      "name": "r34_384_s2",
+      "file": "r34_384_s2.pt",
+      "arch": "resnet34",
+      "res": 384
+    },
+    {
+      "name": "r50_448_s3",
+      "file": "r50_448_s3.pt",
+      "arch": "resnet50",
+      "res": 448
+    }
+  ],
+  "temperature": 0.6021762817838929,
+  "threshold": 0.0742560438811779,
+  "tta_hflip": true,
+  "combine": "mean of member logit margins (PNEUMONIA - NORMAL), then sigmoid(z / temperature)",
+  "risk_bands": {
+    "Low": [
+      0.0,
+      0.03712802194058895
+    ],
+    "Moderate": [
+      0.03712802194058895,
+      0.537128021940589
+    ],
+    "High": [
+      0.537128021940589,
+      1.0
+    ]
+  }
+}

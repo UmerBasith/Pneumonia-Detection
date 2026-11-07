@@ -1,0 +1,30 @@
+{
+  "name": "PneumoScan AI - ResNet ensemble for pneumonia detection",
+  "model_version": "pneumoscan-resnet-ensemble-v1",
+  "authors": "Umer Basith G (CSDX530 Deep Learning mini project, BSARCIST)",
+  "architecture": "Ensemble of ImageNet-pretrained ResNets (torchvision), fine-tuned end-to-end with a 2-class head; horizontal-flip test-time augmentation; temperature-scaled probability; decision threshold chosen on validation. Grad-CAM from layer4 for explanations. See models/ensemble.json for the exact members.",
+  "input": "One frontal chest X-ray image (JPG, PNG, 16-bit PNG or DICOM converted by the app). Converted to 8-bit grayscale, squashed to a square and resized to the network resolution.",
+  "output": "Label NORMAL or PNEUMONIA, calibrated probability of pneumonia, risk level (Low / Moderate / High) and a Grad-CAM heatmap.",
+  "intended_use": "Education and classroom demonstration of deep learning for medical imaging, and decision support for discussion only. The output is a second opinion that must be reviewed by a qualified clinician.",
+  "not_intended_for": [
+    "Diagnosing, ruling out or treating pneumonia in real patients",
+    "Use as a medical device or replacement for a radiologist or doctor",
+    "Adults: the training data are paediatric chest X-rays (children aged 1-5 years)",
+    "Lateral views, CT scans, other body parts or other lung diseases (TB, COVID-19, cancer, effusion...)"
+  ],
+  "training_data": "Kermany et al. 2018, Chest X-Ray Images (Pneumonia), Guangzhou Women and Children's Medical Center, Mendeley Data DOI 10.17632/rscbjbr9sj.2, CC BY 4.0. Official train split (5,232 images) divided at patient level into train (4,485) and validation (747).",
+  "evaluation_data": "Official held-out test split of the same dataset: 624 images (234 NORMAL, 390 PNEUMONIA). Used only for final reporting; nothing was tuned on it.",
+  "risk_levels": "Low: probability below half the decision threshold. Moderate: between half the threshold and the midpoint between the threshold and 1 (borderline or possible pneumonia). High: above that midpoint. Exact cut-offs are in models/ensemble.json (risk_bands).",
+  "xray_gate": "Images that are not chest X-rays (colour photos, documents, blank or tiny images, objects far from the training distribution) are rejected before prediction using colour/blank checks and a Mahalanobis distance on ResNet features. The gate is a convenience, not a guarantee: it can still accept other grayscale radiographs.",
+  "limitations": [
+    "Single hospital, single paediatric population: performance on other hospitals, scanners or adults is unknown and usually lower (dataset shift, Zech et al. 2018).",
+    "Binary task only: it does not tell bacterial from viral pneumonia and does not detect other diseases.",
+    "Most errors on the official test set are NORMAL images predicted as PNEUMONIA (false alarms).",
+    "Grad-CAM heatmaps are coarse (from a 12x12 or 14x14 layer4 feature map) and show where the network looked, not where the disease is proven to be.",
+    "Labels come from expert graders but are not perfect; some training images are low quality.",
+    "Grad-CAM sometimes highlights burned-in text (the 'R' side marker, exposure values, time stamps) as well as the lungs, a sign of partial shortcut learning from hospital-specific image features.",
+    "Because the decision threshold (chosen on validation) is low, a PNEUMONIA label can come with a modest probability; the risk level is the better summary than the 'confidence' number."
+  ],
+  "ethical_considerations": "Not a medical device. Never use the result alone to start, stop or withhold treatment. Patient data entered in the app stays on the local computer.",
+  "disclaimer": "PneumoScan AI is an educational decision-support tool, not a medical device. It can be wrong. Always consult a qualified doctor."
+}

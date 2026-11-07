@@ -1,0 +1,499 @@
+{
+  "model_version": "pneumoscan-resnet-ensemble-v1",
+  "task": "binary classification of pediatric chest X-rays: NORMAL vs PNEUMONIA",
+  "final": {
+    "members": [
+      "r50_384_s1",
+      "r34_384_s2",
+      "r50_448_s3"
+    ],
+    "tta_hflip": true,
+    "temperature": 0.6021762817838929,
+    "threshold": 0.0742560438811779,
+    "threshold_rule": "maximise Youden's J on validation (middle of best interval)",
+    "risk_bands": {
+      "Low": [
+        0.0,
+        0.03712802194058895
+      ],
+      "Moderate": [
+        0.03712802194058895,
+        0.537128021940589
+      ],
+      "High": [
+        0.537128021940589,
+        1.0
+      ]
+    },
+    "val": {
+      "n": 747,
+      "accuracy": 0.9839357429718876,
+      "balanced_accuracy": 0.9857826576576576,
+      "precision": 0.9963436928702011,
+      "recall_sensitivity": 0.9819819819819819,
+      "specificity": 0.9895833333333334,
+      "f1": 0.9891107078039928,
+      "roc_auc": 0.9980292792792793,
+      "pr_auc": 0.9993270768374252,
+      "confusion_matrix": {
+        "tn": 190,
+        "fp": 2,
+        "fn": 10,
+        "tp": 545
+      },
+      "threshold": 0.0742560438811779
+    },
+    "test": {
+      "n": 624,
+      "accuracy": 0.9455128205128205,
+      "balanced_accuracy": 0.9282051282051282,
+      "precision": 0.9218009478672986,
+      "recall_sensitivity": 0.9974358974358974,
+      "specificity": 0.8589743589743589,
+      "f1": 0.958128078817734,
+      "roc_auc": 0.9867357001972387,
+      "pr_auc": 0.9897949631739981,
+      "confusion_matrix": {
+        "tn": 201,
+        "fp": 33,
+        "fn": 1,
+        "tp": 389
+      },
+      "threshold": 0.0742560438811779
+    },
+    "test_xrays_refused_by_gate": "4/624 (all NORMAL, all correctly classified as NORMAL by the classifier); the metrics above include all 624 images"
+  },
+  "per_model": {
+    "r50_384_s1": {
+      "temperature": 0.6094766208935162,
+      "threshold": 0.037711352109909065,
+      "val": {
+        "n": 747,
+        "accuracy": 0.9839357429718876,
+        "balanced_accuracy": 0.9857826576576576,
+        "precision": 0.9963436928702011,
+        "recall_sensitivity": 0.9819819819819819,
+        "specificity": 0.9895833333333334,
+        "f1": 0.9891107078039928,
+        "roc_auc": 0.9973817567567568,
+        "pr_auc": 0.999128635275178,
+        "confusion_matrix": {
+          "tn": 190,
+          "fp": 2,
+          "fn": 10,
+          "tp": 545
+        },
+        "threshold": 0.037711352109909065
+      },
+      "test": {
+        "n": 624,
+        "accuracy": 0.9198717948717948,
+        "balanced_accuracy": 0.894017094017094,
+        "precision": 0.8881278538812786,
+        "recall_sensitivity": 0.9974358974358974,
+        "specificity": 0.7905982905982906,
+        "f1": 0.9396135265700485,
+        "roc_auc": 0.9811472715318871,
+        "pr_auc": 0.9803467572316473,
+        "confusion_matrix": {
+          "tn": 185,
+          "fp": 49,
+          "fn": 1,
+          "tp": 389
+        },
+        "threshold": 0.037711352109909065
+      },
+      "hyperparameters": {
+        "name": "r50_384_s1",
+        "arch": "resnet50",
+        "res": 384,
+        "epochs": 20,
+        "bs": 24,
+        "lr": 0.0003,
+        "backbone_lr_mult": 0.33,
+        "wd": 0.01,
+        "warmup": 1.0,
+        "label_smoothing": 0.1,
+        "ema": 0.998,
+        "patience": 7,
+        "workers": 3,
+        "seed": 1
+      },
+      "training": {
+        "best_epoch": 7,
+        "best_val_auc": 0.996485548048048,
+        "best_val_loss": 0.31198641657829285,
+        "epochs_run": 14,
+        "train_minutes": 17.745700256029764
+      }
+    },
+    "r34_384_s2": {
+      "temperature": 0.6124562112184959,
+      "threshold": 0.0674061831086874,
+      "val": {
+        "n": 747,
+        "accuracy": 0.9812583668005355,
+        "balanced_accuracy": 0.9856841216216217,
+        "precision": 0.998158379373849,
+        "recall_sensitivity": 0.9765765765765766,
+        "specificity": 0.9947916666666666,
+        "f1": 0.9872495446265938,
+        "roc_auc": 0.9976914414414414,
+        "pr_auc": 0.9992317910351829,
+        "confusion_matrix": {
+          "tn": 191,
+          "fp": 1,
+          "fn": 13,
+          "tp": 542
+        },
+        "threshold": 0.0674061831086874
+      },
+      "test": {
+        "n": 624,
+        "accuracy": 0.9487179487179487,
+        "balanced_accuracy": 0.9333333333333333,
+        "precision": 0.9282296650717703,
+        "recall_sensitivity": 0.9948717948717949,
+        "specificity": 0.8717948717948718,
+        "f1": 0.9603960396039604,
+        "roc_auc": 0.9883738768354153,
+        "pr_auc": 0.9901476865714369,
+        "confusion_matrix": {
+          "tn": 204,
+          "fp": 30,
+          "fn": 2,
+          "tp": 388
+        },
+        "threshold": 0.0674061831086874
+      },
+      "hyperparameters": {
+        "name": "r34_384_s2",
+        "arch": "resnet34",
+        "res": 384,
+        "epochs": 20,
+        "bs": 32,
+        "lr": 0.0003,
+        "backbone_lr_mult": 0.33,
+        "wd": 0.01,
+        "warmup": 1.0,
+        "label_smoothing": 0.1,
+        "ema": 0.998,
+        "patience": 7,
+        "workers": 3,
+        "seed": 2
+      },
+      "training": {
+        "best_epoch": 10,
+        "best_val_auc": 0.997118993993994,
+        "best_val_loss": 0.3078647553920746,
+        "epochs_run": 17,
+        "train_minutes": 13.851155392328899
+      }
+    },
+    "r50_448_s3": {
+      "temperature": 0.617944442918516,
+      "threshold": 0.04366711340844632,
+      "val": {
+        "n": 747,
+        "accuracy": 0.9812583668005355,
+        "balanced_accuracy": 0.9788710585585586,
+        "precision": 0.9909255898366606,
+        "recall_sensitivity": 0.9837837837837838,
+        "specificity": 0.9739583333333334,
+        "f1": 0.9873417721518987,
+        "roc_auc": 0.9972409909909911,
+        "pr_auc": 0.9990394554026578,
+        "confusion_matrix": {
+          "tn": 187,
+          "fp": 5,
+          "fn": 9,
+          "tp": 546
+        },
+        "threshold": 0.04366711340844632
+      },
+      "test": {
+        "n": 624,
+        "accuracy": 0.9166666666666666,
+        "balanced_accuracy": 0.8897435897435897,
+        "precision": 0.884090909090909,
+        "recall_sensitivity": 0.9974358974358974,
+        "specificity": 0.782051282051282,
+        "f1": 0.9373493975903614,
+        "roc_auc": 0.9827744904667981,
+        "pr_auc": 0.9875126880098579,
+        "confusion_matrix": {
+          "tn": 183,
+          "fp": 51,
+          "fn": 1,
+          "tp": 389
+        },
+        "threshold": 0.04366711340844632
+      },
+      "hyperparameters": {
+        "name": "r50_448_s3",
+        "arch": "resnet50",
+        "res": 448,
+        "epochs": 20,
+        "bs": 16,
+        "lr": 0.0003,
+        "backbone_lr_mult": 0.33,
+        "wd": 0.01,
+        "warmup": 1.0,
+        "label_smoothing": 0.1,
+        "ema": 0.998,
+        "patience": 7,
+        "workers": 3,
+        "seed": 3
+      },
+      "training": {
+        "best_epoch": 7,
+        "best_val_auc": 0.9974005255255256,
+        "best_val_loss": 0.31367507576942444,
+        "epochs_run": 14,
+        "train_minutes": 23.905638798077902
+      }
+    }
+  },
+  "dataset": {
+    "name": "Kermany et al. 2018, Chest X-Ray Images (Pneumonia), ChestXRay2017.zip",
+    "source": "https://data.mendeley.com/datasets/rscbjbr9sj/2",
+    "doi": "10.17632/rscbjbr9sj.2",
+    "license": "CC BY 4.0",
+    "counts": {
+      "train": {
+        "NORMAL": 1157,
+        "PNEUMONIA": 3328
+      },
+      "val": {
+        "NORMAL": 192,
+        "PNEUMONIA": 555
+      },
+      "test": {
+        "NORMAL": 234,
+        "PNEUMONIA": 390
+      }
+    },
+    "patients": {
+      "train": 2272,
+      "val": 378,
+      "test": 404
+    },
+    "split_method": "official test set held out; validation = patient-level stratified 1/7 of official train (StratifiedGroupKFold, seed 42)",
+    "leakage_checks": {
+      "patients_train_and_val": 0,
+      "patients_train_or_val_and_test": 264,
+      "exact_duplicate_files_test_vs_trainval": 0,
+      "exact_duplicate_files_val_vs_train": 0,
+      "near_duplicates_test_vs_trainval_corr_ge_0.99": 0,
+      "max_thumbnail_corr_test_vs_trainval": 0.9682,
+      "note": "patient numbers are assigned separately inside the official train and test folders, so equal numbers across them are NOT the same patient (dataset authors: independent patients); exact-hash and near-duplicate checks confirm no shared images"
+    }
+  },
+  "xray_gate": {
+    "feature_member": "r50_384_s1",
+    "threshold_distance": 66.04068991306995,
+    "threshold_rule": "1.15 x 99.5% quantile of validation distances",
+    "val_distance_quantiles": {
+      "0.5": 40.96870309190541,
+      "0.9": 50.22685245939559,
+      "0.99": 56.923826120012826,
+      "0.995": 57.4266868809304,
+      "1.0": 64.70680542296479
+    },
+    "test_xrays_accepted": "620/624",
+    "test_xray_accept_rate": 0.9935897435897436,
+    "test_xrays_rejected": [
+      "test/NORMAL/IM-0015-0001.jpeg",
+      "test/NORMAL/IM-0021-0001.jpeg",
+      "test/NORMAL/IM-0039-0001.jpeg",
+      "test/NORMAL/NORMAL2-IM-0282-0001.jpeg"
+    ],
+    "non_xray_rejected": "33/33",
+    "non_xray_wrongly_accepted": [],
+    "grayscale_copies_of_colour_images_rejected": "16/16",
+    "grayscale_copies_wrongly_accepted": [],
+    "non_xray_details": {
+      "skimage_astronaut": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_chelsea": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_coffee": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_rocket": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_text": {
+        "is_xray": false,
+        "score": 0.0214,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_camera": {
+        "is_xray": false,
+        "score": 0.1378,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_moon": {
+        "is_xray": false,
+        "score": 0.0096,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_page": {
+        "is_xray": false,
+        "score": 0.0243,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_coins": {
+        "is_xray": false,
+        "score": 0.0324,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_horse": {
+        "is_xray": false,
+        "score": 0.0698,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_clock": {
+        "is_xray": false,
+        "score": 0.2062,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_hubble_deep_field": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_immunohistochemistry": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_retina": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_brick": {
+        "is_xray": false,
+        "score": 0.0021,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_grass": {
+        "is_xray": false,
+        "score": 0.0046,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_gravel": {
+        "is_xray": false,
+        "score": 0.0055,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_cell": {
+        "is_xray": false,
+        "score": 0.0235,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_checkerboard": {
+        "is_xray": false,
+        "score": 0.0013,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "skimage_cat": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_colorwheel": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "skimage_logo": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "noise_gray": {
+        "is_xray": false,
+        "score": 0.0072,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "noise_rgb": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image is in colour; chest X-rays are grayscale."
+      },
+      "plain_(0, 0, 0)": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image looks blank or uniform, not an X-ray."
+      },
+      "plain_(255, 255, 255)": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image looks blank or uniform, not an X-ray."
+      },
+      "plain_(128, 128, 128)": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image looks blank or uniform, not an X-ray."
+      },
+      "plain_(220, 30, 30)": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image looks blank or uniform, not an X-ray."
+      },
+      "plain_(30, 90, 200)": {
+        "is_xray": false,
+        "score": 0.0,
+        "reason": "Image looks blank or uniform, not an X-ray."
+      },
+      "gradient": {
+        "is_xray": false,
+        "score": 0.0238,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "document_0": {
+        "is_xray": false,
+        "score": 0.0357,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "document_1": {
+        "is_xray": false,
+        "score": 0.0404,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      },
+      "document_2": {
+        "is_xray": false,
+        "score": 0.0207,
+        "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+      }
+    }
+  },
+  "inference": {
+    "gpu": "NVIDIA RTX 3050 Laptop 6 GB",
+    "gpu_ms_with_gradcam_median": 376,
+    "gpu_ms_with_gradcam_p95": 457,
+    "gpu_ms_without_gradcam_median": 233,
+    "cpu": "Intel i5-12450HX",
+    "cpu_ms_with_gradcam_median": 1248,
+    "note": "3 ResNets x (original + mirrored) + Grad-CAM, measured on official test images after warm-up",
+    "consistency_check": "single-image predict() on all 624 test files vs batch evaluation: max |prob diff| 0.00047, 0 label changes"
+  },
+  "honesty": {
+    "test_evaluations_run": 1,
+    "log": "logs/test_evaluations.jsonl",
+    "selection": "members, number of epochs (best val AUC), temperature and threshold were all chosen on validation; the test split was scored once, after the final ensemble was fixed"
+  },
+  "training_total_minutes": 55.5
+}

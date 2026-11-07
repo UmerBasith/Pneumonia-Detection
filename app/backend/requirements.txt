@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydicom
+reportlab
+uharfbuzz  # optional: correct Tamil/Indic text shaping in PDF reports
+pillow
+numpy
+# tests
+pytest
+httpx
+requests
+psutil
+playwright  # QA browser tests in tests/ (then: python -m playwright install chromium)
+pymupdf     # QA: read the PDF reports in tests/

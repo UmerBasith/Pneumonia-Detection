@@ -1,0 +1,13 @@
+filename,true_label,model_prediction,prob_pneumonia,risk_level,source_file
+normal_01.jpeg,NORMAL,NORMAL,0.0006,Low,test/NORMAL/IM-0023-0001.jpeg
+normal_02.jpeg,NORMAL,NORMAL,0.0003,Low,test/NORMAL/IM-0050-0001.jpeg
+normal_03.jpeg,NORMAL,NORMAL,0.0033,Low,test/NORMAL/IM-0077-0001.jpeg
+normal_04.jpeg,NORMAL,NORMAL,0.0004,Low,test/NORMAL/NORMAL2-IM-0323-0001.jpeg
+normal_05.jpeg,NORMAL,NORMAL,0.0006,Low,test/NORMAL/IM-0049-0001.jpeg
+normal_06.jpeg,NORMAL,NORMAL,0.0014,Low,test/NORMAL/NORMAL2-IM-0326-0001.jpeg
+pneumonia_01.jpeg,PNEUMONIA,PNEUMONIA,0.9558,High,test/PNEUMONIA/person152_bacteria_721.jpeg
+pneumonia_02.jpeg,PNEUMONIA,PNEUMONIA,0.9571,High,test/PNEUMONIA/person139_bacteria_662.jpeg
+pneumonia_03.jpeg,PNEUMONIA,PNEUMONIA,0.949,High,test/PNEUMONIA/person135_bacteria_646.jpeg
+pneumonia_04.jpeg,PNEUMONIA,PNEUMONIA,0.9407,High,test/PNEUMONIA/person41_virus_88.jpeg
+pneumonia_05.jpeg,PNEUMONIA,PNEUMONIA,0.9084,High,test/PNEUMONIA/person1608_virus_2786.jpeg
+pneumonia_06.jpeg,PNEUMONIA,PNEUMONIA,0.9635,High,test/PNEUMONIA/person38_virus_83.jpeg

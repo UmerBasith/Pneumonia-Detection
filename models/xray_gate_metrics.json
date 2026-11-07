@@ -1,0 +1,191 @@
+{
+  "feature_member": "r50_384_s1",
+  "threshold_distance": 66.04068991306995,
+  "threshold_rule": "1.15 x 99.5% quantile of validation distances",
+  "val_distance_quantiles": {
+    "0.5": 40.96870309190541,
+    "0.9": 50.22685245939559,
+    "0.99": 56.923826120012826,
+    "0.995": 57.4266868809304,
+    "1.0": 64.70680542296479
+  },
+  "test_xrays_accepted": "620/624",
+  "test_xray_accept_rate": 0.9935897435897436,
+  "test_xrays_rejected": [
+    "test/NORMAL/IM-0015-0001.jpeg",
+    "test/NORMAL/IM-0021-0001.jpeg",
+    "test/NORMAL/IM-0039-0001.jpeg",
+    "test/NORMAL/NORMAL2-IM-0282-0001.jpeg"
+  ],
+  "non_xray_rejected": "33/33",
+  "non_xray_wrongly_accepted": [],
+  "grayscale_copies_of_colour_images_rejected": "16/16",
+  "grayscale_copies_wrongly_accepted": [],
+  "non_xray_details": {
+    "skimage_astronaut": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_chelsea": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_coffee": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_rocket": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_text": {
+      "is_xray": false,
+      "score": 0.0214,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_camera": {
+      "is_xray": false,
+      "score": 0.1378,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_moon": {
+      "is_xray": false,
+      "score": 0.0096,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_page": {
+      "is_xray": false,
+      "score": 0.0243,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_coins": {
+      "is_xray": false,
+      "score": 0.0324,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_horse": {
+      "is_xray": false,
+      "score": 0.0698,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_clock": {
+      "is_xray": false,
+      "score": 0.2062,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_hubble_deep_field": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_immunohistochemistry": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_retina": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_brick": {
+      "is_xray": false,
+      "score": 0.0021,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_grass": {
+      "is_xray": false,
+      "score": 0.0046,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_gravel": {
+      "is_xray": false,
+      "score": 0.0055,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_cell": {
+      "is_xray": false,
+      "score": 0.0235,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_checkerboard": {
+      "is_xray": false,
+      "score": 0.0013,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "skimage_cat": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_colorwheel": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "skimage_logo": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "noise_gray": {
+      "is_xray": false,
+      "score": 0.0072,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "noise_rgb": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image is in colour; chest X-rays are grayscale."
+    },
+    "plain_(0, 0, 0)": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image looks blank or uniform, not an X-ray."
+    },
+    "plain_(255, 255, 255)": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image looks blank or uniform, not an X-ray."
+    },
+    "plain_(128, 128, 128)": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image looks blank or uniform, not an X-ray."
+    },
+    "plain_(220, 30, 30)": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image looks blank or uniform, not an X-ray."
+    },
+    "plain_(30, 90, 200)": {
+      "is_xray": false,
+      "score": 0.0,
+      "reason": "Image looks blank or uniform, not an X-ray."
+    },
+    "gradient": {
+      "is_xray": false,
+      "score": 0.0238,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "document_0": {
+      "is_xray": false,
+      "score": 0.0357,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "document_1": {
+      "is_xray": false,
+      "score": 0.0404,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    },
+    "document_2": {
+      "is_xray": false,
+      "score": 0.0207,
+      "reason": "This does not look like a chest X-ray (it is unlike the X-rays the model was trained on)."
+    }
+  }
+}
