@@ -6,7 +6,9 @@ param(
 )
 $ErrorActionPreference = "Stop"
 $word = New-Object -ComObject Word.Application
-$word.Visible = $false
+# If Word handed us a window the user already has open, leave it visible and never quit it.
+$shared = $word.Documents.Count -gt 0
+if (-not $shared) { $word.Visible = $false }
 $word.DisplayAlerts = 0
 try {
     $doc = $word.Documents.Open((Resolve-Path $Docx).Path, $false, $false, $false)
@@ -24,6 +26,6 @@ try {
     Write-Output "pages=$pages"
 }
 finally {
-    $word.Quit()
+    if (-not $shared -and $word.Documents.Count -eq 0) { $word.Quit() }
     [System.Runtime.InteropServices.Marshal]::ReleaseComObject($word) | Out-Null
 }

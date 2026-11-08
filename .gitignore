@@ -9,3 +9,4 @@ __pycache__/
 app/backend/storage/
 *.db
 models/checkpoints/
+~$*
