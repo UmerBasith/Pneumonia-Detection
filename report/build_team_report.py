@@ -336,8 +336,7 @@ def cover(doc):
                        ("B.Tech Artificial Intelligence & Data Science", False),
                        ("", False),
                        ("Submitted to: Mrs. Mahalakshmi R", False),
-                       ("Assistant Professor / CSE", False),
-                       ("Submitted on: 11th November 2026", False)):
+                       ("Assistant Professor / CSE", False)):
         d.p(text, align=right, bold=bold, after=0, spacing=1.1)
 
 
