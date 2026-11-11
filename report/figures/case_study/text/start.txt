@@ -1,0 +1,12 @@
+
+  PneumoScan AI - Pneumonia Detection using ResNet
+  ================================================
+
+  Starting the server on port 8000...
+  Server is up:  http://127.0.0.1:8000/
+  Warming up the model (loading the ResNet weights)...
+  Model ready:   pneumoscan-resnet-ensemble-v1 on cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+  
+  Keep this window open while you use PneumoScan AI. Press Ctrl+C to stop.
+
+  PneumoScan AI could not start. Read the message above, then press any key to close.

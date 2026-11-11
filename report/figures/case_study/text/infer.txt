@@ -1,0 +1,17 @@
+pneumonia_01.jpeg {
+  "label": "PNEUMONIA",
+  "prob_pneumonia": 0.9557606489960809,
+  "confidence": 0.9557606489960809,
+  "threshold": 0.0742560438811779,
+  "risk_level": "High",
+  "input_png": "<214100 base64 chars>",
+  "xray_check": {
+    "is_xray": true,
+    "score": 0.8208247960202198,
+    "reason": "Looks like a chest X-ray."
+  },
+  "gradcam_overlay_png": "<547916 base64 chars>",
+  "gradcam_heatmap_png": "<171136 base64 chars>",
+  "inference_ms": 4006.735400063917,
+  "model_version": "pneumoscan-resnet-ensemble-v1"
+}

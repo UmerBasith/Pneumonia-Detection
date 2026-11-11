@@ -1,0 +1,32 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0 -- C:\PersonalProjects\pneumoscan-ai\.venv\Scripts\python.exe
+rootdir: C:\PersonalProjects\pneumoscan-ai
+plugins: anyio-4.16.0
+collecting ... collected 24 items
+
+ml/test_inference.py::test_contract_keys_and_types PASSED                [  4%]
+ml/test_inference.py::test_pngs_decode_and_line_up PASSED                [  8%]
+ml/test_inference.py::test_every_pil_mode[L] PASSED                      [ 12%]
+ml/test_inference.py::test_every_pil_mode[RGB] PASSED                    [ 16%]
+ml/test_inference.py::test_every_pil_mode[RGBA] PASSED                   [ 20%]
+ml/test_inference.py::test_every_pil_mode[LA] PASSED                     [ 25%]
+ml/test_inference.py::test_every_pil_mode[P] PASSED                      [ 29%]
+ml/test_inference.py::test_every_pil_mode[I;16] PASSED                   [ 33%]
+ml/test_inference.py::test_every_pil_mode[I] PASSED                      [ 37%]
+ml/test_inference.py::test_every_pil_mode[F] PASSED                      [ 41%]
+ml/test_inference.py::test_every_pil_mode[CMYK] PASSED                   [ 45%]
+ml/test_inference.py::test_every_pil_mode[1] PASSED                      [ 50%]
+ml/test_inference.py::test_tiny_and_huge[size0] PASSED                   [ 54%]
+ml/test_inference.py::test_tiny_and_huge[size1] PASSED                   [ 58%]
+ml/test_inference.py::test_tiny_and_huge[size2] PASSED                   [ 62%]
+ml/test_inference.py::test_rejects_non_xray[astronaut] PASSED            [ 66%]
+ml/test_inference.py::test_rejects_non_xray[chelsea] PASSED              [ 70%]
+ml/test_inference.py::test_rejects_non_xray[coffee] PASSED               [ 75%]
+ml/test_inference.py::test_rejects_non_xray[text] PASSED                 [ 79%]
+ml/test_inference.py::test_rejects_non_xray[rocket] PASSED               [ 83%]
+ml/test_inference.py::test_rejects_blank_and_noise PASSED                [ 87%]
+ml/test_inference.py::test_answer_key_matches PASSED                     [ 91%]
+ml/test_inference.py::test_info PASSED                                   [ 95%]
+ml/test_inference.py::test_dicom_via_load_image PASSED                   [100%]
+
+======================== 24 passed in 62.20s (0:01:02) ========================
